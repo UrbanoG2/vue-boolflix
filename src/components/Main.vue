@@ -24,7 +24,7 @@ export default {
     },
     data() {
         return {
-            movies: [],
+            movies: null,
         }
     },
 
@@ -34,7 +34,7 @@ export default {
         .then((response)=>{
             this.movies = response.data.results;
             // console.log(response.data.results)
-            console.log(this.movies);
+            console.log(this.movies);;
 
         }).catch ((error)=>{
             console.log(error);
