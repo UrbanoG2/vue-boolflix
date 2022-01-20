@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-    <Header @search="completeApi($event)" >
-      
-      </Header> 
+    <Header @doSearch="search($event)">
+      <!-- prendo l'array che ho creato nell'header, gli do un valore con una funzione (qui sotto) e poi lo richiamo con le props nel main-->
+    </Header> 
     
-    <!-- :inputValue="apiDynamic -->
 
-    <Main :completeApi="apiDynamic">
-
-      
+    <Main :Movies="selectedMovies">
+      <!-- questa è la props che ho nel main -->
     </Main>
     
   </div>
@@ -19,6 +17,7 @@
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
 
+
 export default {
   name: "App",
   components: {
@@ -28,19 +27,15 @@ export default {
 
   data (){
     return {
-      apiStatic:"https://api.themoviedb.org/3/search/movie?api_key=6e3e98384f214afec2e321508faaee73&query=",
-      apiDynamic:"",
+      selectedMovies:"" 
     }
   },
 
   methods: {
-       completeApi(value) {
-           this.apiDynamic = this.apiStatic + value;
-           console.log(this.apiDynamic);
-           this.searchText=""
-       } 
+      search(value) { 
+        this.selectedMovies = value; //funzione dell'emit
+      }
   },
-
   
 };
 </script>

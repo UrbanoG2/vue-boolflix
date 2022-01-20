@@ -1,11 +1,11 @@
 <template>
     <div>
-        <ul v-for="(movie,index) in movies"
+        <ul v-for="(movie,index) in Movies"
             :key="index">
             <li>{{ movie.title }}</li>
             <li>{{ movie.original_title }}</li>
             <li>{{ movie.original_language }}</li>
-            <li>voto</li>
+            <li>{{ movie.vote_average }}</li>
 
         </ul>
     </div>
@@ -13,34 +13,17 @@
 
 <script>
 
-import axios from "axios";
-
 export default {
 
 
     nome:"Main",
-    props: {
-        completeApi:String,
-    },
+    props: 
+        ["Movies"],
+    
     data() {
         return {
-            movies: null,
         }
     },
-
-    mounted () {
-        axios
-        .get (this.completeApi)
-        .then((response)=>{
-            this.movies = response.data.results;
-            // console.log(response.data.results)
-            console.log(this.movies);;
-
-        }).catch ((error)=>{
-            console.log(error);
-        })
-    },
-
 }
 </script>
 
