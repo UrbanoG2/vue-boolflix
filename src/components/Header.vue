@@ -22,8 +22,7 @@ export default {
             apipStaticSeries:"https://api.themoviedb.org/3/search/tv?api_key=6e3e98384f214afec2e321508faaee73&language=it_IT&query=",
             apiMovies:"",
             apiSeries:"",
-            // movies:[],
-            // series:[],
+            //oggetto contenente i due array
             finalArr: {
                 movies:[],
                 series:[]
@@ -32,19 +31,15 @@ export default {
     },
 
     methods: {  //faccio tutto in un metodo: creo la mia API completa sommando i miei data e successivamente creo la chiamata AXIOS 
-       
+    
 
-        // getMerged() {
-        //    let mergedArr = [...this.movies, ...this.series]
-        //    console.log(mergedArr);  
-        // },
-
-
-
+    //questa è la funzione che richiamo al click, chiamo entrambe le funzioni che mi servono (con un timeout per farle funzionare)
         getBoth() {
             this.getMovies(),
             this.getSeries(),
             setTimeout(() => {
+
+                //qui faccio l'emit, con il quale passo il dato che voglio (in questo caso l'oggetto che contiene i due array. Passo l'intero oggetto così da gestire i suoi elementi)
                 this.$emit("doSearch", this.finalArr);
             }, 500);
             
@@ -53,7 +48,7 @@ export default {
         getMovies() {
            this.apiMovies = this.apiStaticMovies + this.searchText;
            console.log(this.apiMovies);
-
+            //all'interno di entrambe le mie funzioni costruisco l'api completa e poi faccio la chiamata AXIOS sulla predetta api
             axios
                 .get (this.apiMovies)
                 .then((response)=>{
@@ -68,12 +63,10 @@ export default {
         },
 
 
-        
-        
         getSeries() {
            this.apiSeries = this.apipStaticSeries + this.searchText;
            console.log(this.apiSeries);
-
+            //stessa cosa di sopra
             axios
                 .get (this.apiSeries)
                 .then((response)=>{
@@ -85,12 +78,7 @@ export default {
                     console.log(error);
                 })
         } ,
-
-
-       
   },
-
-
 }
 </script>
 

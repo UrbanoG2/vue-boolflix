@@ -1,14 +1,12 @@
 <template>
   <div id="app">
     <Header @doSearch="search($event)">
-      <!-- prendo l'array che ho creato nell'header, gli do un valore con una funzione (qui sotto) e poi lo richiamo con le props nel main-->
+      <!-- ricevo dall'header (dove ho fatto l'emit) l'oggetto contenente i due array. L'event lo richiamo nella funzione search che ho qui sotto-->
     </Header> 
     
-
+    <!-- definisco i due elementi del main, prendendo le props dal main stesso, e le associo al valore che ho nei data -->
     <Main :Movies="Filtered.selectedMovies"
           :Series="Filtered.selectedSeries">
-          
-      <!-- questa è la props che ho nel main -->
     </Main>
     
   </div>
@@ -29,7 +27,7 @@ export default {
 
   data (){
     return {
-
+      //data in cui inserisco i valori, in questo caso inserisco un oggetto che ha al suo interno i due array vuoti
       Filtered: {
          selectedMovies:[],
          selectedSeries:[],
@@ -39,8 +37,10 @@ export default {
   },
 
   methods: {
+
+    //funzione che parte da dove ho ricevuto l'emit, nella qualche dico che i miei data sono uguali al valore che gli ho passato sopra (nel mio caso il valore è finalArr, che è un oggetto, specifico poi cosa voglio di quell'oggetto)
       search(value) { 
-        this.Filtered.selectedMovies = value.movies; 
+        this.Filtered.selectedMovies = value.movies;
         this.Filtered.selectedSeries = value.series;
       }
   },
