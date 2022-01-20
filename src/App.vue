@@ -5,7 +5,9 @@
     </Header> 
     
 
-    <Main :Movies="selectedMovies">
+    <Main :Movies="Filtered.selectedMovies"
+          :Series="Filtered.selectedSeries">
+          
       <!-- questa è la props che ho nel main -->
     </Main>
     
@@ -27,13 +29,19 @@ export default {
 
   data (){
     return {
-      selectedMovies:"" 
+
+      Filtered: {
+         selectedMovies:[],
+         selectedSeries:[],
+      }
+     
     }
   },
 
   methods: {
       search(value) { 
-        this.selectedMovies = value; //funzione dell'emit
+        this.Filtered.selectedMovies = value.movies; 
+        this.Filtered.selectedSeries = value.series;
       }
   },
   
