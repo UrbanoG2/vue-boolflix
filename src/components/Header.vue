@@ -16,7 +16,7 @@ import axios from "axios";
 export default {
     nome:"Header",
     data () {
-        return {  //data per creare lAPI completa
+        return {  //data per creare l'API completa
             searchText: "",
             apiStaticMovies:"https://api.themoviedb.org/3/search/movie?api_key=6e3e98384f214afec2e321508faaee73&query=",
             apipStaticSeries:"https://api.themoviedb.org/3/search/tv?api_key=6e3e98384f214afec2e321508faaee73&language=it_IT&query=",

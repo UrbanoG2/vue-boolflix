@@ -49,5 +49,8 @@ export default {
 </script>
 
 <style lang="scss">
-
-</style>
+  #app {
+    height: 100%;
+    background-color: black;
+  }
+</style>  
