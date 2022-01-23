@@ -1,11 +1,14 @@
 <template>
-    <div>
-        <input  @keyup.enter="getBoth" type="text" placeholder="Cerca il tuo film"
+    <div class="header">
+        <img src="../assets/img/bool-logo.png" alt="">
+
+        <div class="search-container">
+            <input  @keyup.enter="getBoth" type="text" placeholder="Cerca il tuo film"
                 v-model="searchText"
                  >
-        <button @click="getBoth">Cerca</button>
+            <!-- <button @click="getBoth">Cerca</button> -->
+        </div>
         <!-- input sopra con v-model e click sotto, niente di complicato -->
-
     </div>
 </template>
 
@@ -83,5 +86,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .header {
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+            width: 10%;
+            padding: 2em 0;
+            margin: 0 1em;
+           
+        }
 
+        .search-container {
+            margin-right: 2em;
+
+            input {
+                margin-right:2em;
+                color: white;
+                background-color: black;
+                border: none;
+            }
+        }
+
+    }
 </style>
