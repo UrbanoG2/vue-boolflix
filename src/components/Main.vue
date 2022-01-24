@@ -51,8 +51,8 @@
 
                     <div class="active-hover">
                         <div class="thumb-text">
-                            <h2>{{ serie.title }}</h2>
-                            <h3>{{ serie.original_title }}</h3>
+                            <h2>{{ serie.name }}</h2>
+                            <h3>{{ serie.original_name }}</h3>
                             <!-- richiamo la bandiera tramite la funzione che ho creato -->
                             <i :class="'flag flag-' + getFlag(serie.original_language)"/>
                             VOTO: {{ getNewVote(serie.vote_average) }} <i v-for="(number, index) in 5"
@@ -128,7 +128,7 @@ export default {
            flex-direction: column;
            flex-wrap: wrap;
            border: 1px solid white;
-           padding: 0.5em;
+        //    padding: 0.5em;
            margin: 10px;
            .img-container {
                 img.stock-image {
@@ -142,7 +142,7 @@ export default {
                 display: none;
                 position: absolute;
                 background-color: RGB(20, 20, 20);
-                opacity: 0.9;
+                opacity: 0.8;
                 height: 513px;
                 width: 342px;
                 cursor: pointer;

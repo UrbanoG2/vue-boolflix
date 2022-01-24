@@ -94,7 +94,7 @@ export default {
         img {
             width: 10%;
             padding: 2em 0;
-            margin: 0 1em;
+            margin: 0 2em;
            
         }
 
